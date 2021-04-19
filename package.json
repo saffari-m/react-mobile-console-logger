@@ -1,5 +1,5 @@
 {
-  "name": "react-console-logger",
+  "name": "react-mobile-console-logger",
   "version": "1.0.0",
   "description": "Show browser console detail's on mobile devices in react application",
   "main": "index.js",
