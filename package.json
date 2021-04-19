@@ -1,6 +1,6 @@
 {
   "name": "react-mobile-console-logger",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Show browser console detail's on mobile devices in react application",
   "main": "dist/main.bundle.js",
   "module": "src/index.js",
