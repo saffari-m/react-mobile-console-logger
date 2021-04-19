@@ -4,7 +4,7 @@ object-assign
 @license MIT
 */
 
-/*! /*! react-mobile-console-logger 1.0.2  (27d873b) | https://github.com/saffari-m/react-console-logger * / */
+/*! /*! react-mobile-console-logger 1.0.4  (c69cffb) | https://github.com/saffari-m/react-console-logger * / */
 
 /** @license React v17.0.2
  * react.production.min.js

@@ -12,10 +12,13 @@ const commitHash = require("child_process")
 module.exports = {
   entry: path.resolve(__dirname, "src/index.js"),
   output: {
-    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    clean: true,
-    chunkFilename: "[contenthash].js",
+    filename: "react-mobile-console-logger.js",
+    library: "reactMobileConsoleLogger",
+    libraryTarget: "umd",
+    publicPath: "/dist/",
+    umdNamedDefine: true,
+    clean: true
   },
   // optimization: {
   //   runtimeChunk: "single",

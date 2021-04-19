@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "Show browser console detail's on mobile devices in react application",
   "main": "dist/main.bundle.js",
+  "module": "src/index.js",
   "scripts": {
     "start": "webpack serve --open --hot --mode development",
     "watch": "webpack --watch",
