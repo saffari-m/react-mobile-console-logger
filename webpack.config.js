@@ -44,7 +44,7 @@ module.exports = {
       filename: "index.html",
     }),
     new webpack.BannerPlugin({
-      banner: `/*! ${package.name} ${package.version}  (${commitHash}) | https://github.com/saffari-m/mobile-console-logger */`,
+      banner: `/*! ${package.name} ${package.version}  (${commitHash}) | https://github.com/saffari-m/react-console-logger */`,
     }),
   ],
   resolve: {

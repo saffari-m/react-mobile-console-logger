@@ -1,9 +1,6 @@
 node_modules
 ./node_modules
 
-dist
-./dist
-
 web-site
 web-site/**/*
 ./web-site/**/*
