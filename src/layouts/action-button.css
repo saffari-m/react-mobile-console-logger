@@ -1,0 +1,21 @@
+.rcl-action-button {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  width: 50px;
+  height: 50px;
+  background: var(--action-button);
+  border: 2px solid var(--action-button-border);
+  color: var(--action-button-border);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  line-height: 0.5em;
+  appearance: none;
+  padding: 0 10px 10px 10px;
+  z-index: 1000;
+}
+.rcl-action-button:focus {
+  outline: none;
+  border-color: var(--action-button-focus);
+}

@@ -10,14 +10,11 @@ const commitHash = require("child_process")
 //`/*! mobile-console-logger <%= pkg.version %> (${commitHash}) | https://github.com/saffari-m/mobile-console-logger */`
 
 module.exports = {
-  mode: "production",
-  entry: path.resolve(__dirname, "src/index.jsx"),
+  entry: path.resolve(__dirname, "src/index.js"),
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    uniqueName: "Mobile_Console_Logger",
-    // name: "react-emotion",
     chunkFilename: "[contenthash].js",
   },
   // optimization: {
@@ -30,11 +27,21 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
+      {
+        test: /\.(css)$/,
+        exclude: /node_modules/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|j?g|svg|gif)?$/,
+        use: "file-loader",
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: path.resolve(__dirname, "index.html"),
+      filename: "index.html",
     }),
     new webpack.BannerPlugin({
       banner: `/*! ${package.name} ${package.version}  (${commitHash}) | https://github.com/saffari-m/mobile-console-logger */`,
@@ -45,7 +52,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "/"),
-    compress: true,
+    compress: false,
     port: 9000,
   },
 };

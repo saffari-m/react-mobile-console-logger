@@ -1,39 +1,51 @@
 {
-  "name": "mobile-console-logger",
+  "name": "react-console-logger",
   "version": "1.0.0",
   "description": "Show browser console detail's on mobile devices in react application",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack serve --open",
+    "start": "webpack serve --open --hot --mode development",
     "watch": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saffari-m/mobile-console-logger.git"
+    "url": "git+https://github.com/saffari-m/react-console-logger.git"
   },
   "keywords": [
     "Console.log",
     "Browser",
     "mobile",
-    "Console"
+    "Console",
+    "Logger",
+    "log"
   ],
   "author": "mohamadsaffari90@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saffari-m/mobile-console-logger/issues"
+    "url": "https://github.com/saffari-m/react-console-logger/issues"
   },
-  "homepage": "https://github.com/saffari-m/mobile-console-logger#readme",
+  "homepage": "https://github.com/saffari-m/react-console-logger#readme",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.12.13",
     "@emotion/babel-plugin": "^11.2.0",
+    "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "postcss": "^8.2.10",
+    "postcss-loader": "^5.2.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "webpack": "^5.25.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"

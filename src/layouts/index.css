@@ -1,0 +1,41 @@
+:root {
+  --console-background: #252525;
+  --action-button: #ff6768;
+  --action-button-border: #141414;
+  --action-button-focus: #a54242;
+  --log-title-info: #3282b8;
+  --log-title-warn: #d65a31;
+  --log-title-error: #ca3e47;
+  --log-title-debug: #bef992;
+  --log-body: #dbd8e3;
+}
+
+.log-row {
+  display: flex;
+  flex-direction: row;
+  font-size: 1em;
+  color: var(--log-body);
+}
+.log-row > .log-title {
+  font-size: 0.9em;
+  min-width: 80px;
+}
+.log-row > .log-body {
+  padding: 0;
+  margin: 0 5px;
+}
+
+.log-row[logtype="log"] > .log-title,
+.log-row[logtype="info"] > .log-title,
+.log-row[logtype="count"] > .log-title {
+  color: var(--log-title-info);
+}
+.log-row[logtype="error"] > .log-title {
+  color: var(--log-title-error);
+}
+.log-row[logtype="debug"] > .log-title {
+  color: var(--log-title-debug);
+}
+.log-row[logtype="warn"] > .log-title {
+  color: var(--log-title-warn);
+}
