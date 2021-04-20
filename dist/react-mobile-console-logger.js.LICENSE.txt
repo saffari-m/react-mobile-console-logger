@@ -1,1 +1,0 @@
-/*! /*! react-mobile-console-logger 1.0.5  (bc00c44) | https://github.com/saffari-m/react-console-logger * / */
