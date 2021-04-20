@@ -4,11 +4,10 @@ import ActionButton from "./action-button";
 import ConsoleContainer from "./console-container";
 import "./index-layout.css";
 
-const consoleWrapper = new ConsoleWrapper();
-
-export default function index(props) {
+export default function IndexLayout(props) {
   const { perfix } = props;
   const [showConsole, setShowConsole] = useState(false);
+  const consoleWrapper = new ConsoleWrapper();
 
   useEffect(() => {
     consoleWrapper.init(perfix);

@@ -1,5 +1,5 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
+import React from "react";
 import IndexLayout from "./layouts/index-layout";
-export default IndexLayout;
-// ReactDOM.render(<IndexLayout perfix="MSF" />, document.getElementById("root"));
+export default function Main() {
+  return <IndexLayout />;
+}

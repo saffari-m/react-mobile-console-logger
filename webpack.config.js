@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const package = require("./package.json");
 
 const commitHash = require("child_process")
@@ -9,53 +8,71 @@ const commitHash = require("child_process")
 
 //`/*! mobile-console-logger <%= pkg.version %> (${commitHash}) | https://github.com/saffari-m/mobile-console-logger */`
 
-module.exports = {
+const config = {
+  // Basic configuration
   entry: path.resolve(__dirname, "src/index.js"),
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "react-mobile-console-logger.js",
-    library: "reactMobileConsoleLogger",
-    libraryTarget: "umd",
-    publicPath: "/dist/",
-    umdNamedDefine: true,
-    clean: true
-  },
-  // optimization: {
-  //   runtimeChunk: "single",
-  // },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ["babel-loader"],
+        test: /\.(js|jsx)?$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-react"],
+          },
+        },
       },
       {
-        test: /\.(css)$/,
-        exclude: /node_modules/,
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|j?g|svg|gif)?$/,
-        use: "file-loader",
       },
     ],
   },
+};
+const cjs = Object.assign({}, config, {
+  output: {
+    path: path.resolve("dist"),
+    filename: "react-mobile-console-logger.cjs.js",
+  },
+});
+const commonjs2 = Object.assign({}, config, {
+  output: {
+    path: path.resolve("dist"),
+    filename: "react-mobile-console-logger.js",
+    libraryTarget: "commonjs2",
+    clean: true,
+  },
+  resolve: {
+    alias: {
+      react: path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
+    },
+  },
+  // externals: {
+  //   react: "commonjs react",
+  //   "react-dom": "commonjs react-dom",
+  // },
+  externals: {
+    // Don't bundle react or react-dom
+    react: {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "React",
+      root: "React",
+    },
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM",
+    },
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "index.html"),
-      filename: "index.html",
-    }),
     new webpack.BannerPlugin({
       banner: `/*! ${package.name} ${package.version}  (${commitHash}) | https://github.com/saffari-m/react-console-logger */`,
     }),
   ],
-  resolve: {
-    extensions: [".js", ".jsx"],
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "/"),
-    compress: false,
-    port: 9000,
-  },
-};
+});
+
+module.exports = [commonjs2];
